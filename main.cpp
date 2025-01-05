@@ -7,6 +7,8 @@ using namespace std;
 
 int main()
 {
+	setlocale(LC_ALL, "RU");
+	cout << "---	ЧАСТЬ 1		---		VECTOR" << endl << endl;
 	vector<int> myVector(3,55);
 	for (int i = 0; i < myVector.size(); i++) // Как можно вывести эл-ты вектора
 	{
@@ -50,6 +52,55 @@ int main()
 	}
 	cout << "Size:\t" << myVector.size() << endl;
 	cout <<"Capacity:\t" << myVector.capacity() << endl; // Емкость вектора - автоматически вектор не пересоздается в каком-то месте в памяти, а заранее юерется с запасом
+
+	
+	
+	
+	cout << endl << endl << "---	ЧАСТЬ 2		---		ИТЕРАТОРЫ" << endl << endl;
+
+	vector<int> vr = { 41, 72, 36, 44 };
+
+	vector<int>::iterator it; // Создание итератора
+	
+	it = vr.begin(); // Теперь итератор указывает на первый эл-т вектора
+	
+	++it;
+
+	//cout << *it << endl;
+
+	for (vector<int>::iterator i = vr.begin(); i != vr.end(); i++) // Метод end - итератор указывает на следующий элемент после последнего в векторе
+	{
+		cout << *i << endl;
+	}
+	cout << endl << endl;
+	//const_iterator - идет после обычного итератора в ветке наследования
+	for (vector<int>::const_iterator i = vr.cbegin(); i != vr.cend(); i++) // Метод end - итератор указывает на следующий элемент после последнего в векторе
+	{
+		cout << *i << endl;
+	}
+	cout << endl << endl;
+	//Реверсивное итерирование по вектору
+	for (vector<int>::reverse_iterator i = vr.rbegin(); i != vr.rend(); i++) // Метод end - итератор указывает на следующий элемент после последнего в векторе
+	{
+		cout << *i << endl;
+	}
+	cout << endl << endl;
+
+
+	vector<int> vtr = { 99, 20, 45, 73 };
+	
+	vector<int>::iterator itr = vtr.begin();
+	cout << *itr << endl;
+	
+	advance(itr, 2); // Используется вместо арифметики указателей (Изменяет индекс, на который ссылается итератор)
+	
+	vtr.insert(itr, 10000); // Вставка эл-та в вектор по индексу
+	
+	vector<int>::iterator itErase = vtr.begin();
+	vtr.erase(itErase); // Удаление эл-та из вектора по индексу
+
+	vtr.erase(itErase, itErase + 2); // Перегрузка erase - удаление диапазона эл-тов
+	cout << *itr << endl;
 
 
 	return 0;
