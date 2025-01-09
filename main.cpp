@@ -9,6 +9,8 @@ int main()
 {
 	setlocale(LC_ALL, "RU");
 	cout << "---	ЧАСТЬ 1		---		VECTOR" << endl << endl;
+	// Представляет собой реализацию динамического массива
+
 	vector<int> myVector(3,55);
 	for (int i = 0; i < myVector.size(); i++) // Как можно вывести эл-ты вектора
 	{
